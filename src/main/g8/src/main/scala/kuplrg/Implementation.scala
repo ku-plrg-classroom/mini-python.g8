@@ -4,7 +4,7 @@ object Implementation extends Template {
 
   import Stmt.*, Expr.*, Value.*, BOp.*, Inst.*, Control.*, Error.*
 
-  def reduce(st: State): State =
+  def step(st: State): State =
     val State(k, s, h, m) = st
     ???
 

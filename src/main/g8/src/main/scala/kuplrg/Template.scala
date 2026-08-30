@@ -12,7 +12,7 @@ trait Template {
           val result = v.str(mem)
           if (debug) log("Result: " + result)
           result
-        case _ => aux(reduce(st))
+        case _ => aux(step(st))
     def log(msg: String): Unit = println("-" * 80 + "\n" + msg)
     val Program(stmts, expr) = Program(str)
     val xs = if (stmts.isEmpty) Nil else locals(Block(stmts)).toList
@@ -23,7 +23,7 @@ trait Template {
     val initSt = State(initK, Nil, Map.empty, mem)
     aux(initSt)
 
-  def reduce(st: State): State
+  def step(st: State): State
 
   def locals(block: Block): Set[String]
 }
